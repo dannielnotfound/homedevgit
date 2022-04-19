@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculadora Bootstrap</title>
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <br />
+
+          <div class="calculadora bg-primary">
+            <input
+              id="display"
+              type="text"
+              class="form-control resultado"
+              placeholder="0"
+              disabled="disabled"
+            />
+
+            <div class="row">
+              <button
+                onclick="inputInDisplay('acButton')"
+                type="button"
+                class="btn btn-dark btn-lg clear font-weight-light"
+              >
+                C
+              </button>
+              <button
+                onclick="inputInDisplay(' / ')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                /
+              </button>
+              <!-- operation -->
+              <button
+                id="mult-btn"
+                onclick="inputInDisplay(' X ')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                x
+              </button>
+              <!-- operation -->
+            </div>
+
+            <div class="row">
+              <button
+                onclick="inputInDisplay('7')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                7
+              </button>
+              <button
+                onclick="inputInDisplay('8')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                8
+              </button>
+              <button
+                onclick="inputInDisplay('9')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                9
+              </button>
+              <button
+                onclick="inputInDisplay(' - ')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                -
+              </button>
+              <!-- operation -->
+            </div>
+
+            <div class="row">
+              <button
+                onclick="inputInDisplay('4')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                4
+              </button>
+              <button
+                onclick="inputInDisplay('5')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                5
+              </button>
+              <button
+                onclick="inputInDisplay('6')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                6
+              </button>
+              <button
+                onclick="inputInDisplay(' + ')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                +
+              </button>
+              <!-- operation -->
+            </div>
+
+            <div class="row">
+              <button
+                onclick="inputInDisplay('1')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                1
+              </button>
+              <button
+                onclick="inputInDisplay('2')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                2
+              </button>
+              <button
+                onclick="inputInDisplay('3')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                3
+              </button>
+              <button
+                onclick="calcular()"
+                type="button"
+                class="btn btn-dark btn-lg enter"
+              >
+                =
+              </button>
+            </div>
+
+            <div class="row" style="margin-top: -60px">
+              <button
+                onclick="inputInDisplay('0')"
+                type="button"
+                class="btn btn-dark zero btn-lg font-weight-light"
+              >
+                0
+              </button>
+              <button
+                onclick="inputInDisplay('.')"
+                type="button"
+                class="btn btn-dark btn-lg font-weight-light"
+              >
+                .
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .classteste {
+        height: 60px;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        /*
+        const btn = document.getElementsByClassName("btn");
+        $(".btn").addClass("btn-dark");
+
+        for (i = 0; i < btn.length; i++) {
+          btnID = btn[i].id = "btn" + [i];
+          let newBtn = document.getElementById(btnID);
+          newBtn.addEventListener("click", function () {
+            newBtn.classList.toggle("btn-dark");
+            newBtn.classList.toggle("btn-success");
+            setTimeout(function () {
+              newBtn.classList.toggle("btn-dark");
+            }, 300);
+          });
+          console.log(newBtn);
+        }
+        */
+      });
+    
+    function inputInDisplay(num){
+        const displayInput =  $('#display').val();
+        if(num == 'acButton'){
+          $('#display').val('');
+        }else{
+          $('#display').val(displayInput + num);
+        };
+    };
+
+    function calcular(){
+        const displayInput = $('#display').val();
+        if(displayInput.includes(' X ')){
+            let newX = displayInput.replace(' X ', '*'); 
+            $('#display').val(eval(newX));
+        }else{
+          $('#display').val(eval(displayInput));
+        };
+        
+    };
+    </script>
+    <style>
+      .calculadora {
+        margin-top: 80px;
+
+        border: solid 1px #000;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      }
+
+      .btn {
+        width: 60px;
+        height: 50px;
+        margin: 5px;
+        box-shadow: 1px 1px 1px #000;
+      }
+
+      .clear {
+        width: 130px;
+      }
+
+      .enter {
+        height: 110px;
+      }
+
+      .zero {
+        width: 130px;
+      }
+
+      .resultado {
+        text-align: right;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: solid 1px #000;
+        box-shadow: 1px 1px 1px #000;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
