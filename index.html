@@ -15,11 +15,12 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body>
     <div class="container">
       <div class="row">
         <div class="col d-flex justify-content-center">
-          <br />
+          <br/>
 
           <div class="calculadora bg-primary">
             <input
@@ -180,43 +181,42 @@
     <script>
       $(document).ready(function () {
         /*
-        const btn = document.getElementsByClassName("btn");
-        $(".btn").addClass("btn-dark");
+      const btn = document.getElementsByClassName("btn");
+      $(".btn").addClass("btn-dark");
 
-        for (i = 0; i < btn.length; i++) {
-          btnID = btn[i].id = "btn" + [i];
-          let newBtn = document.getElementById(btnID);
-          newBtn.addEventListener("click", function () {
+      for (i = 0; i < btn.length; i++) {
+        btnID = btn[i].id = "btn" + [i];
+        let newBtn = document.getElementById(btnID);
+        newBtn.addEventListener("click", function () {
+          newBtn.classList.toggle("btn-dark");
+          newBtn.classList.toggle("btn-success");
+          setTimeout(function () {
             newBtn.classList.toggle("btn-dark");
-            newBtn.classList.toggle("btn-success");
-            setTimeout(function () {
-              newBtn.classList.toggle("btn-dark");
-            }, 300);
-          });
-          console.log(newBtn);
-        }
-        */
+          }, 300);
+        });
+        console.log(newBtn);
+      }
+      */
       });
-    
-    function inputInDisplay(num){
-        const displayInput =  $('#display').val();
-        if(num == 'acButton'){
-          $('#display').val('');
-        }else{
-          $('#display').val(displayInput + num);
-        };
-    };
 
-    function calcular(){
-        const displayInput = $('#display').val();
-        if(displayInput.includes(' X ')){
-            let newX = displayInput.replace(' X ', '*'); 
-            $('#display').val(eval(newX));
-        }else{
-          $('#display').val(eval(displayInput));
-        };
-        
-    };
+      function inputInDisplay(num) {
+        const displayInput = $("#display").val();
+        if (num == "acButton") {
+          $("#display").val("");
+        } else {
+          $("#display").val(displayInput + num);
+        }
+      }
+
+      function calcular() {
+        const displayInput = $("#display").val();
+        if (displayInput.includes(" X ")) {
+          let newX = displayInput.replace(" X ", "*");
+          $("#display").val(eval(newX));
+        } else {
+          $("#display").val(eval(displayInput));
+        }
+      }
     </script>
     <style>
       .calculadora {
